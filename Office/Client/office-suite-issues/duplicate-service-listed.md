@@ -13,10 +13,10 @@ ms.author: luche
 ms.reviewer: amaniah
 appliesto: 
   - Office 2013
-ms.date: 03/31/2022
+ms.date: 03/06/2024
 ---
 
-# In the Research pane in an Office application, a service is listed two times, or a service returns no result
+# In the Research pane in an Office application, a service is listed two times, or a service returns no result or "This service did not respond."
 
 ## Symptoms
 
@@ -30,6 +30,10 @@ When you view the list of available services in the **Research** pane, some serv
 
 When you try to query a service in the
  **Research** pane, the service returns no result. 
+
+**Issue 3**
+
+When you try to query a service in the **Research** pane, the service returns "This service did not respond."
 
 ## Resolution
 
@@ -93,18 +97,28 @@ If you want to remove the duplicate services from the list of available services
 -  For Office 2013, remove all of the subkeys under the following registry entry:
    
    HKEY_CURRENT_USER\Software\Microsoft\Office\15.0\Common\Research\Sources\\{88686849-2DD9-474D-9300-778E3336FA5D}\ 
-- If you do not want to update the registry or you cannot update the registry, disable the service so that it does not appear in the list in the **Research**pane. To do this, click the **Research options** link at the bottom of the **Research** pane, and then click to clear the check box that is next to the service name.    
+
+- For Office 2016 and later, remove all of the subkeys under the following registry entry:
+
+  HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\Common\Research\Sources\\{88686849-2DD9-474D-9300-778E3336FA5D}
+
+- If you do not want to update the registry or you cannot update the registry, disable the service so that it does not appear in the list in the **Research** pane. To do this, click the **Research options** link at the bottom of the **Research** pane, and then click to clear the check box that is next to the service name.   
 
 ### fix Issue 2
 
 If the Research pane is not showing any available services and research sites, make sure you are connected to the internet, and then follow these steps:
 
-- lick the Research options link at the bottom of the Research pane.   
+- Click the Research options link at the bottom of the Research pane.   
 - Select Update/Remove.   
-- lick Update   
+- Click Update   
 - When the services have been updated, select Close.   
-- lick the check box of the service name you want to add   
+- Click the check box of the service name you want to add   
 
+## fix Issue 3
+
+If you query services from the Microsoft Office Online Services provider and see "This service did not respond." in the **Research** pane try removing the regkey and subkeys for this key:
+
+HKEY_CURRENT_USER\Software\Microsoft\Office\16.0\Common\Research\Sources\\{88686849-2DD9-474D-9300-778E3336FA5D}
 
 ## Did this fix the problem? 
 
